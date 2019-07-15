@@ -2,8 +2,8 @@ import axios from 'axios';
 import { API_URL } from '../config';
 
 /* SELECTORS */
-export const getPosts = ({ posts }) => posts;
-export const getPostsNumber = ({ postsNumber }) => postsNumber;
+export const getPosts = ({ posts }) => posts.data;
+export const getPostsNumber = ({ posts }) => posts.data.length;
 
 /* ACTIONS */
 
@@ -13,7 +13,12 @@ const createActionName = name => `app/${reducerName}/${name}`;
 
 /* INITIAL STATE */
 
-const initialState = [];
+const initialState = {
+  data: [],
+  request: {
+    pending: false,
+  },
+};
 
 /* REDUCER */
 
@@ -24,7 +29,7 @@ export const loadPosts = payload => ({ payload, type: LOAD_POSTS });
 export default function reducer(statePart = initialState, action = {}) {
     switch (action.type) {
       case LOAD_POSTS:
-        return [ ...action.payload ];
+        return { ...statePart, data: action.payload };
       default:
         return statePart;
     }

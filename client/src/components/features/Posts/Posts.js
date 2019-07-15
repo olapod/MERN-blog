@@ -2,6 +2,7 @@ import React from 'react';
 import { PropTypes } from 'prop-types';
 
 import PostsList from '../PostsList/PostsList';
+import Spinner from '../../common/Spinner/Spinner';
 
 class Posts extends React.Component {
 
@@ -16,7 +17,9 @@ class Posts extends React.Component {
     return (
       <div>
         <PostsList posts={posts} />
+        <Spinner />
       </div>
+
     );
   }
 
