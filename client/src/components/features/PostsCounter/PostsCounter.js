@@ -3,17 +3,17 @@ import { PropTypes } from 'prop-types';
 
 class PostsCounter extends React.Component {
 
-  componentDidMount() {
-    const { getPostsNumber } = this.props;
-    getPostsNumber();
-  }
+  // componentDidMount() {
+  //   const { loadPosts } = this.props;
+  //   loadPosts();
+  // }
 
   render() {
-    const { number } = this.props;
-
+    const { postsNumber } = this.props;
+    console.log("Liczba postów:" + postsNumber)
     return (
       <div>
-        {number}
+        Post amount: { postsNumber }
       </div>
     );
   }
