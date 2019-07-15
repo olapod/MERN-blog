@@ -7,8 +7,8 @@ import Posts from '../../features/Posts/PostsContainer';
 const PostsPage = () => (
   <div>
     <PageTitle>Posts list</PageTitle>
-    <PostsCounter />
     <Posts />
+    <PostsCounter />
   </div>
 );
 
