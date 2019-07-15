@@ -9,11 +9,11 @@ class PostsCounter extends React.Component {
   // }
 
   render() {
-    const { posts } = this.props;
-
+    const { postsNumber } = this.props;
+    console.log("++++" + postsNumber)
     return (
       <div>
-        Post amount: { posts.length }
+        Post amount: { postsNumber }
       </div>
     );
   }
@@ -21,7 +21,7 @@ class PostsCounter extends React.Component {
 };
 
 PostsCounter.propTypes = {
-  number: PropTypes.number,
+  postNumber: PropTypes.number,
   // loadPosts: PropTypes.func.isRequired,
 };
 
