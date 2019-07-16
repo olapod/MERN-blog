@@ -3,26 +3,25 @@ import { PropTypes } from 'prop-types';
 
 class PostsCounter extends React.Component {
 
-  // componentDidMount() {
-  //   const { loadPosts } = this.props;
-  //   loadPosts();
-  // }
+  componentDidMount() {
+    const { loadPosts } = this.props;
+    loadPosts();
+  }
 
   render() {
-    const { postsNumber } = this.props;
-    console.log("++++" + postsNumber)
+    const { posts } = this.props;
+    console.log("posty: " + posts.length);
     return (
       <div>
-        Post amount: { postsNumber }
+        Posts amount: {posts.length}
       </div>
     );
   }
-
 };
 
 PostsCounter.propTypes = {
-  postNumber: PropTypes.number,
-  // loadPosts: PropTypes.func.isRequired,
+  posts: PropTypes.array,
+  loadPosts: PropTypes.func.isRequired,
 };
 
 export default PostsCounter;

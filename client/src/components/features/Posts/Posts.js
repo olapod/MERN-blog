@@ -13,12 +13,12 @@ class Posts extends React.Component {
 
   render() {
     const { posts, request } = this.props;
-    console.log("posty: " + posts)
     return (
       <div>
         {request.pending && <Spinner />}
         <PostsList posts={posts} />
       </div>
+
     );
   }
 

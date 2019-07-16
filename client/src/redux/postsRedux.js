@@ -3,7 +3,7 @@ import { API_URL } from '../config';
 
 /* SELECTORS */
 export const getPosts = ({ posts }) => posts.data;
-export const getPostsNumber = ({ posts }) => posts.length;
+export const getPostsNumber = ({ posts }) => posts;
 export const getRequest = ({ posts }) => posts.request;
 
 /* ACTIONS */
