@@ -3,6 +3,7 @@ import { PropTypes } from 'prop-types';
 
 import PostsList from '../PostsList/PostsList';
 import Spinner from '../../common/Spinner/Spinner';
+import Alert from '../../common/Alert/Alert'
 
 class Posts extends React.Component {
 
@@ -13,17 +14,37 @@ class Posts extends React.Component {
 
   render() {
     const { posts, request } = this.props;
-    return (
-      <div>
-        {request.pending && <Spinner />}
-        <PostsList posts={posts} />
-      </div>
-
-    );
+    console.log(request.pending)
+    if (request.pending === false && request.success === true && posts.length) {
+      return (
+        <div>
+          <PostsList posts={posts} />
+        </div>
+      )
+    }
+    if (request.pending === true || request.success === null) {
+      return (
+        <div>
+          <Spinner />
+        </div>
+      )
+    };
+    if (request.pending === false && request.error !== null) {
+      return (
+        <div>
+          <Alert variant='error' children={request.error}/>
+        </div>
+      )
+    }
+    if (request.pending === false && request.success === true && posts.length === 0) {
+      return (
+        <div>
+          <Alert variant='info' children='-- no posts --'/>
+        </div>
+      )
+    }
   }
-
-};
-
+}
 Posts.propTypes = {
   posts: PropTypes.arrayOf(
     PropTypes.shape({

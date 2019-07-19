@@ -21,7 +21,6 @@ const Alert = ({ variant = '', children, ...otherProps }) => {
         return <MdInfoOutline />
     }
   };
-
   return (
     <Animated animationIn="fadeIn" animationOut="fadeOut">
       <div {...otherProps} className={`alert alert--${variant}`}>
