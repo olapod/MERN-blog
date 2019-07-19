@@ -3,11 +3,6 @@ import { PropTypes } from 'prop-types';
 
 class PostsCounter extends React.Component {
 
-  // componentDidMount() {
-  //   const { loadPosts } = this.props;
-  //   loadPosts();
-  // }
-
   render() {
     const { posts } = this.props;
     if (this.props.posts.length) {
@@ -28,7 +23,6 @@ class PostsCounter extends React.Component {
 
 PostsCounter.propTypes = {
   posts: PropTypes.array,
-  loadPosts: PropTypes.func.isRequired,
 };
 
 export default PostsCounter;
