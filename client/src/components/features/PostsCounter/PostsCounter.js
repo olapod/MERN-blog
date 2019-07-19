@@ -5,24 +5,22 @@ class PostsCounter extends React.Component {
 
   render() {
     const { posts } = this.props;
-    if (this.props.posts.length) {
+    if (posts) {
       return (
         <div>
-          Posts amount: {posts.length}
+          Posts amount: { posts }
         </div>
       )
     }
-    else {
-      return (
-        <div>
-          - no posts -
-        </div>)
-    }
+    return (
+      <div>
+        - no posts -
+      </div>)
   }
 };
 
 PostsCounter.propTypes = {
-  posts: PropTypes.array,
+  posts: PropTypes.number,
 };
 
 export default PostsCounter;

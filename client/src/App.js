@@ -5,7 +5,7 @@ import MainLayout from './components/layout/MainLayout/MainLayout';
 
 // import routes
 import Home from './components/pages/Home/HomePage';
-import Posts from './components/pages/Posts/PostsPage';
+import PostsPage from './components/pages/Posts/PostsPage';
 import Contact from './components/pages/Contact/ContactPage';
 import NotFound from './components/pages/NotFound/NotFoundPage';
 import AddPostPage from './components/pages/AddPostPage/AddPostPage';
@@ -19,7 +19,7 @@ class App extends React.Component {
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/posts/new" exact component={AddPostPage} />
-          <Route path="/posts" exact component={Posts} />
+          <Route path="/posts" exact component={PostsPage} />
           <Route path="/posts/postID" exact component={SinglePostPage} />
           <Route path="/contact" exact component={Contact} />
           <Route component={NotFound} />
