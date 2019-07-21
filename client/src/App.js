@@ -20,7 +20,12 @@ class App extends React.Component {
           <Route path="/" exact component={Home} />
           <Route path="/posts/new" exact component={AddPostPage} />
           <Route path="/posts" exact component={PostsPage} />
-          <Route path="/posts/postID" exact component={SinglePostPage} />
+          <Route exact path={'/posts/:id'} render={props => (
+              <SinglePostPage
+                id={props.match.params.id}
+                {...props} />
+                )}
+              />
           <Route path="/contact" exact component={Contact} />
           <Route component={NotFound} />
         </Switch>

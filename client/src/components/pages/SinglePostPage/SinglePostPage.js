@@ -1,9 +1,13 @@
 import React from 'react';
 
-const SinglePostPage = () => (
+import PageTitle from '../../common/PageTitle/PageTitle';
+import SinglePost from '../../features/SinglePost/SinglePost';
+
+const PostsPage = () => (
   <div>
-    <h1>Single Post</h1>
+    <PageTitle>Single Post Overview</PageTitle>
+    <SinglePost />
   </div>
 );
 
-export default SinglePostPage;
+export default PostsPage;
