@@ -48,10 +48,7 @@ export default function reducer(statePart = initialState, action = {}) {
       case LOAD_POSTS:
         return { ...statePart, data: action.payload };
       case LOAD_SINGLE_POST:
-          const findSinglePost = ({ postsById }) => {
-            return action.payload.map((id) => postsById[id]);
-          }
-        return { ...statePart, singlePost: findSinglePost };
+        return { ...statePart, singlePost: action.payload };
       case START_REQUEST:
         return { ...statePart, request: { pending: true, error: null, success: null } };
       case END_REQUEST:
@@ -73,6 +70,24 @@ export default function reducer(statePart = initialState, action = {}) {
         let res = await axios.get(`${API_URL}/posts`);
         await new Promise((resolve, reject) => setTimeout(resolve, 2000));
         dispatch(loadPosts(res.data));
+        dispatch(endRequest());
+
+      } catch(e) {
+        dispatch(errorRequest(e.message));
+      }
+
+    };
+  };
+
+  export const loadSinglePostRequest = () => {
+    return async dispatch => {
+
+      dispatch(startRequest());
+      try {
+
+        let res = await axios.get(`${API_URL}/posts/:id`);
+        await new Promise((resolve, reject) => setTimeout(resolve, 2000));
+        dispatch(loadSinglePost(res.singlePost));
         dispatch(endRequest());
 
       } catch(e) {

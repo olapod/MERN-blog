@@ -7,12 +7,13 @@ const PostsList = ({ posts }) => (
   <div>
     <section className="posts-list">
       {posts.map(post => <PostSummary
-                            key={post.id}
+                            // key={post.id}
                             props={post.id}
-                            // key={`post-${post.id}`}
+                            key={`post-${post.id}`}
                             // to={`/posts/${post.id}`}
                             // id={`post-${post.id}`}
-                            {...post} />)}
+                            {...post}
+                            />)}
     </section>
   </div>
 );

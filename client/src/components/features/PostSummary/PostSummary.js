@@ -13,10 +13,11 @@ const PostSummary = ({ id, title, content, props}) => (
       <SmallTitle>{title}</SmallTitle>
       <HtmlBox>{cutText(content, 250)}</HtmlBox>
       <Link
-        to={`/posts/${props}`}
-        key={`post-${props}`}
-        id={`post-${props}`}
+        to={`/posts/${props.id}`}
+        key={`post-${props.id}`}
+        id={`post-${props.id}`}
         {...props}
+
       >
         <Button variant="primary">
           Read more
