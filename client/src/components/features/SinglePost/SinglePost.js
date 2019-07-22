@@ -16,8 +16,8 @@ class SinglePost extends React.Component {
 
   render() {
     const { singlePost, request } = this.props;
-    console.log(singlePost)
-    if (request.pending === false && request.success === true && singlePost) {
+    console.log("+++", this.props)
+    if (!request.pending && !!request.success && singlePost) {
       return (
         <div>
           <article className="post-summary">
@@ -27,21 +27,21 @@ class SinglePost extends React.Component {
         </div>
       )
     }
-    if (request.pending === true || request.success === null) {
+    if (request.pending || !!request.success ) {
       return (
         <div>
           <Spinner />
         </div>
       )
     };
-    if (request.pending === false && request.error !== null) {
+    if (!request.pending && request.error !== null) {
       return (
         <div>
           <Alert variant='error' children={request.error}/>
         </div>
       )
     }
-    if (request.pending === false && request.success === true && !singlePost) {
+    if (!request.pending && request.success && !singlePost) {
       return (
         <div>
           <Alert variant='info' children='-- no post --'/>
