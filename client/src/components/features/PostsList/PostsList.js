@@ -4,17 +4,11 @@ import { PropTypes } from 'prop-types';
 import PostSummary from '../PostSummary/PostSummary';
 
 const PostsList = ({ posts }) => (
-  <div>
-    <section className="posts-list">
-      {posts.map(post => {
-      console.log("++++++++++++++", post);
-      return (<PostSummary
-        key={`post-${post.id}`}
-        {...post}/>)
-      })
-      }
-    </section>
-  </div>
+	<div>
+		<section className="posts-list">
+			{posts.map(post => <PostSummary key={post.id} {...post} />)}
+		</section>
+	</div>
 );
 
 PostsList.propTypes = {

@@ -10,13 +10,14 @@ import HtmlBox from '../../common/HtmlBox/HtmlBox';
 class SinglePost extends React.Component {
 
   componentDidMount() {
-    const { loadSinglePost } = this.props;
+    const { loadSinglePost, resetRequest } = this.props;
     loadSinglePost();
+    resetRequest();
   }
 
   render() {
     const { singlePost, request } = this.props;
-    console.log("+++", this.props)
+    console.log("+++++++++++", singlePost)
     if (!request.pending && !!request.success && singlePost) {
       return (
         <div>
