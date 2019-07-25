@@ -1,11 +1,11 @@
 import React from 'react';
-// import { PropTypes } from 'prop-types';
+import { PropTypes } from 'prop-types';
 import Spinner from '../../common/Spinner/Spinner';
 import Alert from '../../common/Alert/Alert';
 import SmallTitle from '../../common/SmallTitle/SmallTitle';
 import HtmlBox from '../../common/HtmlBox/HtmlBox';
 
-// import './PostSummary.scss';
+import '../PostSummary/PostSummary.scss';
 
 class SinglePost extends React.Component {
 
@@ -17,12 +17,13 @@ class SinglePost extends React.Component {
 
   render() {
     const { singlePost, request } = this.props;
-    if (!request.pending && !!request.success && singlePost) {
+     if (!request.pending && !!request.success && singlePost) {
       return (
         <div>
           <article className="post-summary">
             <SmallTitle>{singlePost.title}</SmallTitle>
             <HtmlBox>{singlePost.content}</HtmlBox>
+            <p>Author: {singlePost.author}</p>
           </article>
         </div>
       )
@@ -50,15 +51,15 @@ class SinglePost extends React.Component {
     }
   }
 }
-// Posts.propTypes = {
-//   posts: PropTypes.arrayOf(
-//     PropTypes.shape({
-//       id: PropTypes.string.isRequired,
-//       title: PropTypes.string.isRequired,
-//       content: PropTypes.string.isRequired,
-//     })
-//   ),
-//   loadSinglePosts: PropTypes.func.isRequired,
-// };
+SinglePost.propTypes = {
+  singlePost: PropTypes.shape(
+    { id: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      content: PropTypes.string.isRequired,
+      author: PropTypes.string.isRequired,
+    }),
+  loadPosts: PropTypes.func.isRequired,
+  resetRequest: PropTypes.func.isRequired,
+};
 
 export default SinglePost;
