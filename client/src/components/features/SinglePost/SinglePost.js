@@ -17,7 +17,6 @@ class SinglePost extends React.Component {
 
   render() {
     const { singlePost, request } = this.props;
-    console.log("+++++++++++", singlePost)
     if (!request.pending && !!request.success && singlePost) {
       return (
         <div>
