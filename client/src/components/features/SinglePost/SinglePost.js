@@ -17,7 +17,7 @@ class SinglePost extends React.Component {
 
   render() {
     const { singlePost, request } = this.props;
-     if (!request.pending && !!request.success && singlePost) {
+    if (!request.pending && !!request.success && singlePost) {
       return (
         <div>
           <article className="post-summary">
@@ -54,12 +54,13 @@ class SinglePost extends React.Component {
 SinglePost.propTypes = {
   singlePost: PropTypes.shape(
     { id: PropTypes.string.isRequired,
+      author: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
       content: PropTypes.string.isRequired,
-      author: PropTypes.string.isRequired,
     }),
-  loadPosts: PropTypes.func.isRequired,
-  resetRequest: PropTypes.func.isRequired,
+    resetRequest: PropTypes.func.isRequired,
+    loadSinglePost: PropTypes.func.isRequired,
+
 };
 
 export default SinglePost;
