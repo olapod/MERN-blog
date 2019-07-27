@@ -15,6 +15,8 @@ class Posts extends React.Component {
 
   render() {
     const { posts, request } = this.props;
+
+    console.log('sukces: ', request.success)
     if (request.pending === false && request.success === true && posts.length) {
       return (
         <div>
