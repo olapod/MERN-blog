@@ -19,10 +19,13 @@ class PostForm extends React.Component {
       title: '',
       author: '',
       content: ''
+    },
+    request: {
+      success: null
     }
   }
 
-  componentDidMount() {
+  componentWillMount() {
     const { resetRequest} = this.props;
     resetRequest();
   }
@@ -49,6 +52,7 @@ class PostForm extends React.Component {
     const { post } = this.state;
     const { handleChange, handleEditor, addPost } = this;
     const { request } = this.props;
+    console.log('----------------', request.success)
 
     if(request.error) return <Alert variant="error">{request.error}</Alert>
     else if(request.success) return <Alert variant="success">Post has been added!</Alert>

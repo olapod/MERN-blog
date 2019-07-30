@@ -7,11 +7,23 @@ import Alert from '../../common/Alert/Alert'
 
 class Posts extends React.Component {
 
-  componentDidMount() {
-    const { loadPosts, resetRequest } = this.props;
+  // componentWillMount() {
+  //   const { loadPosts, resetRequest } = this.props;
+  //   loadPosts();
+  //   resetRequest();
+  // }
+
+  componentWillMount() {
+    const { loadPosts } = this.props;
     loadPosts();
-    resetRequest();
+
   }
+
+  componentDidMount() {
+    const { resetRequest } = this.props;
+     resetRequest();
+  }
+
 
   render() {
     const { posts, request } = this.props;

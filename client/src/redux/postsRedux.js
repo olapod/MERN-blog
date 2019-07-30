@@ -60,7 +60,7 @@ export default function reducer(statePart = initialState, action = {}) {
       case ERROR_REQUEST:
         return { ...statePart, request: { pending: false, error: action.error, success: false } };
       case RESET_REQUEST:
-        return { ...statePart, request: { pending: false, error: null, success: null } };
+        return { ...statePart, request: { success: null } };
       default:
         return statePart;
     }
