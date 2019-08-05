@@ -9,8 +9,7 @@ import cutText from './PostSummaryContainer'
 import './PostSummary.scss';
 
 const PostSummary = ({ id, title, content, author }) => (
-	<div>
-	  <article className="post-summary">
+	<article className="post-summary">
 		<SmallTitle>{title}</SmallTitle>
 		<HtmlBox>{cutText(content, 250)}</HtmlBox>
 		<p>Author: {author}</p>
@@ -19,8 +18,7 @@ const PostSummary = ({ id, title, content, author }) => (
 					Read more
 			</Link>
 			</Button>
-	  </article>
-  </div>
+	</article>
 );
 
 PostSummary.propTypes = {

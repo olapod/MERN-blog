@@ -78,12 +78,14 @@ export default function reducer(statePart = initialState, action = {}) {
         dispatch(loadPosts(res.data));
         dispatch(endRequest());
 
+
       } catch(e) {
         dispatch(errorRequest(e.message));
       }
 
     };
   };
+
 
   export const loadSinglePostRequest = (id) => {
     return async dispatch => {

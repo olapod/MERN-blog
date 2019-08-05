@@ -8,15 +8,19 @@ import Alert from '../../common/Alert/Alert'
 class Posts extends React.Component {
 
   componentDidMount() {
-    const { loadPosts, resetRequest } = this.props;
+    const { loadPosts } = this.props;
     loadPosts();
-    resetRequest();
+
   }
 
+  componentWillUnmount () {
+    const { resetRequest } = this.props;
+    resetRequest();
+  }
   render() {
     const { posts, request } = this.props;
 
-    console.log('sukces: ', request.success)
+    console.log('sukces: ', request)
     if (request.pending === false && request.success === true && posts.length) {
       return (
         <div>
@@ -24,7 +28,7 @@ class Posts extends React.Component {
         </div>
       )
     }
-    if (request.pending === true || request.success === null) {
+    if (request.pending === true || request.success === null ) {
       return (
         <div>
           <Spinner />
