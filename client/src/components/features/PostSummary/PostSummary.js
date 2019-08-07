@@ -17,7 +17,7 @@ const PostSummary = ({ id, title, content, author }) => (
 			<Link to={`/posts/${id}`}>
 					Read more
 			</Link>
-			</Button>
+		</Button>
 	</article>
 );
 

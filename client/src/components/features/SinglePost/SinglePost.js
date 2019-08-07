@@ -10,8 +10,12 @@ import '../PostSummary/PostSummary.scss';
 class SinglePost extends React.Component {
 
   componentDidMount() {
-    const { loadSinglePost, resetRequest } = this.props;
+    const { loadSinglePost } = this.props;
     loadSinglePost();
+  }
+
+  componentWillUnmount() {
+    const { resetRequest } = this.props;
     resetRequest();
   }
 

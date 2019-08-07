@@ -4,27 +4,35 @@ import { PropTypes } from 'prop-types';
 import PostsList from '../PostsList/PostsList';
 import Spinner from '../../common/Spinner/Spinner';
 import Alert from '../../common/Alert/Alert'
+import Pagination from '../../common/Pagination/Pagination'
 
 class Posts extends React.Component {
 
   componentDidMount() {
-    const { loadPosts } = this.props;
-    loadPosts();
-
+    const { loadPostsByPage } = this.props;
+    loadPostsByPage(1);
   }
 
-  componentWillUnmount () {
+  componentWillUnmount() {
     const { resetRequest } = this.props;
     resetRequest();
   }
+
+  loadPostsPage = (page) => {
+    const { loadPostsByPage } = this.props;
+    loadPostsByPage(page);
+  }
+
   render() {
-    const { posts, request } = this.props;
+    const { posts, request, pages } = this.props;
+    const { loadPostsPage } = this;
 
     console.log('sukces: ', request)
     if (request.pending === false && request.success === true && posts.length) {
       return (
         <div>
           <PostsList posts={posts} />
+          <Pagination pages={pages} onPageChange={loadPostsPage}/>;
         </div>
       )
     }
