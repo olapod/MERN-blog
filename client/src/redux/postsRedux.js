@@ -51,6 +51,8 @@ export const loadPostsByPage = payload => ({ payload, type: LOAD_POSTS_PAGE });
 
 export default function reducer(statePart = initialState, action = {}) {
     switch (action.type) {
+      case LOAD_POSTS:
+        return { ...statePart, data: action.payload };
       case LOAD_POSTS_PAGE:
         return {
           ...statePart,

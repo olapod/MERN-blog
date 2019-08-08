@@ -21,12 +21,12 @@ class Posts extends React.Component {
   loadPostsPage = (page) => {
     const { loadPostsByPage } = this.props;
     loadPostsByPage(page);
+
   }
 
   render() {
     const { posts, request, pages } = this.props;
     const { loadPostsPage } = this;
-
     console.log('sukces: ', request)
     if (request.pending === false && request.success === true && posts.length) {
       return (
@@ -68,7 +68,7 @@ Posts.propTypes = {
       author: PropTypes.string.isRequired,
     })
   ),
-  loadPosts: PropTypes.func.isRequired,
+  loadPostsByPage: PropTypes.func.isRequired,
 };
 
 export default Posts;
