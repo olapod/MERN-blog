@@ -32,7 +32,7 @@ class Posts extends React.Component {
       return (
         <div>
           <PostsList posts={posts} />
-          <Pagination pages={pages} onPageChange={loadPostsPage}/>;
+          <Pagination pages={pages} onPageChange={loadPostsPage}/>
         </div>
       )
     }
