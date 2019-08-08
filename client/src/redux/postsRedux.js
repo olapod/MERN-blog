@@ -118,7 +118,7 @@ export const addPostRequest = (post) => {
 
     dispatch(startRequest());
     try {
-
+      // eslint-disable-next-line
       let res = await axios.post(`${API_URL}/posts`, post);
       await new Promise((resolve, reject) => setTimeout(resolve, 2000));
       dispatch(endRequest());
