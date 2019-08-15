@@ -7,6 +7,7 @@ export const getPostsNumber = ({ posts }) => posts.data.length;
 export const getRequest = ({ posts }) => posts.request;
 export const getSinglePost = ({ posts }) => posts.singlePost;
 export const getPages = ({ posts }) => Math.ceil(posts.amount / posts.postsPerPage);
+export const getPresentPage = ({posts}) => posts.presentPage;
 
 /* ACTIONS */
 
@@ -29,6 +30,9 @@ const initialState = {
     error: null,
     success: null,
   },
+  amount: 0,
+  postsPerPage: 2,
+  presentPage: 1
 };
 
 /* REDUCER */
@@ -122,7 +126,7 @@ export const addPostRequest = (post) => {
     try {
       // eslint-disable-next-line
       let res = await axios.post(`${API_URL}/posts`, post);
-      await new Promise((resolve, reject) => setTimeout(resolve, 2000));
+      // await new Promise((resolve, reject) => setTimeout(resolve, 2000));
       dispatch(endRequest());
 
     } catch(e) {
@@ -144,7 +148,7 @@ export const loadPostsByPageRequest = (page) => {
       const limit = postsPerPage;
 
       let res = await axios.get(`${API_URL}/posts/range/${startAt}/${limit}`);
-      await new Promise((resolve, reject) => setTimeout(resolve, 2000));
+      // await new Promise((resolve, reject) => setTimeout(resolve, 2000));
 
       const payload = {
         posts: res.data.posts,
