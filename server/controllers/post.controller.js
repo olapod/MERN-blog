@@ -22,8 +22,7 @@ exports.getSinglePost = async (req, res) => {
 
   };
 
-  // get posts by range
-// Get posts by range
+  // Get posts by range
 
 exports.getPostsByRange = async function (req, res) {
 
